@@ -1,0 +1,36 @@
+#include<conio.h>
+#include<graphics.h>
+
+void main()
+{
+	int gd=0,gm;
+	int x=150,y=325,r=10;
+	char ch;
+	initgraph(&gd,&gm,"C://TURBOC3//BGI");
+
+	setbkcolor(BLUE);
+	setcolor(RED);
+	circle(x,y,r);
+	setfillstyle(1,RED);
+	floodfill(x,y,RED);
+       while(1)
+	   {
+		ch=getch();
+		if(ch==27)
+			{
+				closegraph();
+				exit(1);
+			}
+	       else if(ch==32)
+			{
+				setfillstyle(1,BLACK);
+				floodfill(x,y,BLACK);
+				setcolor(RED);
+				circle(x,y,r);
+				setfillstyle(1,RED);
+				floodfill(x,y,RED);
+				x=x+1;
+			}
+	   }
+
+}
